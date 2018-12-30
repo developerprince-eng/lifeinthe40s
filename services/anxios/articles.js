@@ -24,7 +24,14 @@ class ARTICLES{
     retrieveArticle(){
 
     }
-    retrieveArticles(){
+    retrieveArticles(callback){
+        axios.get('https:backend-lifeinthe40s.herokuapp.com/articles')
+        .then(function (response){
+            callback(response);
+        })
+        .catch(function (error){
+            console.log(error);
+        });
 
     }
     deleteArticle(){
