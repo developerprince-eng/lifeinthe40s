@@ -25,9 +25,9 @@ class ARTICLES{
 
     }
     retrieveArticles(callback){
-        axios.get('https:backend-lifeinthe40s.herokuapp.com/articles')
+        axios.get('https://backend-lifeinthe40s.herokuapp.com/articles')
         .then(function (response){
-            callback(response);
+            callback(response.data.rows);
         })
         .catch(function (error){
             console.log(error);

@@ -344,10 +344,11 @@
 
                 <div class="wrapper-posts">
                     <div class="blog-posts grid-layout clearfix">
+                        <% articles.forEach(function(article){ %>
                         <div class="post post-grid">
                             <div class="post-media">
                                 <a href="#">
-                                    <img src="images/posts/1.jpg" alt="Post">
+                                    <img src="<%= article.imgUrl %>" alt="Post">
                                 </a>
                             </div>
                             <div class="post-content">
@@ -362,15 +363,15 @@
                                     </ul>
                                 </div>
                                 <h2 class="title">
-                                    <a href="#">The basis of friendship is sharing</a>
+                                    <a href="#"><%= article.title %></a>
                                 </h2>
                                 <div class="post-detail">
-                                    <a href="#" class="date">September 14, 2016</a>
-                                    <a href="#" class="comment-count">3 Comments</a>
+                                    <a href="#" class="date"><%= article.createdAt %></a>
+                                    <a href="#" class="comment-count"></a>
                                 </div>
 
                                 <div class="the-excerpt">
-                                    Morbi leo enim, laoreet eget urna id, ullamcorper condimentum urna. Curabitur accumsan sem et nisi ultricies porttitor. Aliquam sed nunc elit. Nunc faucibus interdum mauris at mattis.Phasellus congue volutpat porttitor. Vivamus fringilla iaculis ex, et condimentum magna pharetra id. Aliquam erat volutpat. Nam odio velit, egestas vel leo tempus, luctus dapibus mauris. Phasellus molestie, lectus
+                                    <%= article.header_content %>
                                 </div>
 
                                 <div class="post-footer clearfix">
@@ -383,7 +384,7 @@
 
                             </div>
                         </div>
-
+                        <% }); %>
                       
 
                     </div>

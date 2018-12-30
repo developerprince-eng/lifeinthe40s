@@ -9,9 +9,12 @@ var auth = new AUTH();
 router.get('/', function(req, res, next) {
   if(req.session.token) {
     console.log(req.session.token);
-    res.redirect('/articles/:token');
+    res.redirect('/articles');
   }
-  res.render('index', { title: 'Express' });
+  articles.retrieveArticles(function(response){
+    var articles = response;
+    res.render('index', {articles : articles});
+  });
 });
 
 router.post('/users', function(req, res, next){
