@@ -10,16 +10,6 @@ router.get('/', function(req, res, next) {
 
 });
 
-router.post('/users', function(req, res, next){
-
-  var email = res.body.email;
-  var password = res.body.password;
-
-  var hash = md5(password);
-  auth.basicAuth(email, hash , function(response){
-    console.log(response);
-  });
-});
 
 /* LOG IN users listing. */
 router.get('/register', function(req, res, next) {

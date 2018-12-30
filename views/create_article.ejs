@@ -9,6 +9,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat|Quattrocento" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="../stylesheets/css/libs/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/css/libs/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/css/styles.css">
@@ -81,9 +82,6 @@
                                             <li class="menu-item">
                                                 <a href="/articles/edit">Edit</a>
                                             </li>
-                                            <li class="menu-item">
-                                                <a href="/logout">Logout</a>
-                                            </li>
                                         </ul>
                                     </nav>
                                     <div class="header-socials">
@@ -120,19 +118,10 @@
                                         <div class="header-tb-cell">
                                             <ul>
                                                 <li class="social-item">
-                                                    <a href="https://www.behance.net/"><i class="fa fa-behance"></i><span>Behance</span></a>
-                                                </li>
-                                                <li class="social-item">
-                                                    <a href="http://dribbble.com/"><i class="fa fa-dribbble"></i><span>Dribbble</span></a>
-                                                </li>
-                                                <li class="social-item">
                                                     <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i><span>Facebook</span></a>
                                                 </li>
                                                 <li class="social-item">
                                                     <a href="https://plus.google.com/"><i class="fa fa-google-plus"></i><span>Google Plus</span></a>
-                                                </li>
-                                                <li class="social-item">
-                                                    <a href="https://www.pinterest.com/"><i class="fa fa-pinterest"></i><span>Pinterest</span></a>
                                                 </li>
                                                 <li class="social-item">
                                                     <a href="http://twitter.com/"><i class="fa fa-twitter"></i><span>Twitter</span></a>
@@ -143,21 +132,56 @@
                                 </div>
                                 <!-- End Header Top-->
                 
-                                <!-- Logo -->
-                                <div class="logo">
-                                    <div class="kd-container">
-                                        <div class="kd-row">
-                                            <a href="/">
-                                                <img src="../images/logo.png" alt="Logo">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- End Logo -->
-                
                             </header>
                             <!-- End Header -->
 
+                    <!-- Create Articles -->
+                    <div class="row justify-content-center mt-3">
+                        <div  class="container-fluid col-lg-12 col-md-12 col-sm-12 login-form mt-3">
+                        <h1 class="header-1 justify-content-center">Create Article</h1>
+                            <form method="POST" action="/articles/create" id="createArticle">
+                                <div class="form-group">
+                                <label for="useremail">Article Title</label>
+                                <input type="text" class="form-control auth-input" name="article_title" placeholder="Article Name">
+                                </div>
+                                <div class="form-group">
+                                <label for="userpassword">Header Content</label>
+                                <input type="text" class="form-control auth-input" name="header_content" placeholder="Header Content Goes here">
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="inputGroupSelect01">Image Options</label>
+                                        </div>
+                                        <select name="imgurl" form="createArticle">
+                                            <option selected>Choose...</option>
+                                            <option value="images/posts/1.jpg">One</option>
+                                            <option value="images/posts/2.jpg">Two</option>
+                                            <option value="images/posts/3.jpg">Three</option>
+                                            <option value="images/posts/4.jpg">Four</option>
+                                            <option value="images/posts/5.jpg">Five</option>
+                                            <option value="images/posts/6.jpg">Six</option>
+                                            <option value="images/posts/7.jpg">Seven</option>
+                                            <option value="images/posts/8.jpg">Eight</option>
+                                            <option value="images/posts/9.jpg">Nine</option>
+                                            <option value="images/posts/10.jpg">Ten</option>  
+                                            <option value="images/posts/11.jpg">Eleven</option>  
+                                            <option value="images/posts/12.jpg">Twelve</option>    
+                                            <option value="images/posts/13.jpg">Thirten</option>  
+                                            <option value="images/posts/14.jpg">Fourteen</option>                                  
+                                        </select>
+                                    </div>
+                                </div>
+                                <label for="content">Content</label>
+                                <textarea name="article_content" id="editor"></textarea>
+                                <br>
+                                <div class="auth-item form-submit">
+                                    <button type="submit" class="btn btn-primary auth-btn btn-lg mb-3">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--END Create Articles-->
 
         </div>
     </div>
@@ -279,6 +303,13 @@
     </div>
 </footer>
 <!-- End Footer -->
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 <script type="text/javascript" src="../javascripts/js/libs/jquery-1.12.4.min.js"></script>
 <script type="text/javascript" src="../javascripts/js/libs/owl.carousel.js"></script>
