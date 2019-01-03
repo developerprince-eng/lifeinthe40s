@@ -36,7 +36,7 @@ router.post('/users', function(req, res, next){
   });
 });
 
-router.post('articles', function(req, res, next){
+router.get('/articles', function(req, res, next){
   if(req.session.token) {
     res.render('article');
   }
@@ -53,11 +53,14 @@ router.get('/logout', function(req, res, next){
   });
 });
 
-router.get('/articles', function(req, res, next){
-  if(req.session.token) {
-    res.render('article');
-  }
-  
+router.get('/articles/:id', function(req, res, next){
+    var id = req.params.id;
+    var article;
+    articles.retrieveArticle(id, function(response){
+      console.log(response);
+      article = response;
+      res.render('single', {articles: article, id: id});
+    });
 });
 
 router.get('/articles/create', function(req, res, next){
@@ -66,7 +69,15 @@ router.get('/articles/create', function(req, res, next){
   }
   res.redirect('/users');
 });
+router.post('/articles/comments', function(req, res, next){
+ var uid = req.session.id;
+ var comment = req.body.comment;
 
+ articles.createComment(uid, comment, function(response){
+  console.log(response.data);
+  res.redirect('/articles/:id');
+ });
+});
 router.post('/articles/create', function(req, res, next){
 
     var name = req.body.article_title;
