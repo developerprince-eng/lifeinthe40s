@@ -18,6 +18,34 @@ class ARTICLES{
             console.log(error);
         }); 
     }
+    updateComment(uid, id, articleid, content ,callback){
+        axios.put('https://backend-lifeinthe40s.herokuapp.com/comments/' + id,{
+            access_token: uid,
+            article_id: articleid,
+            comment: content
+        })
+        .then(function(response){
+            callback(response);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    }
+    updateArticle(id, name, hcontent, content ,imgUrl,callback){
+        axios.put('https://backend-lifeinthe40s.herokuapp.com/arcticles/' + id,{
+            access_token: matser_key,
+            name: name,
+            header_content: hcontent,
+            content: content,
+            imgUrl: imgUrl
+        })
+        .then(function(response){
+            callback(response);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    }
     createComment(userid , articleid, comment,  callback){
         axios.post('https://backend-lifeinthe40s.herokuapp.com/comments',{
             access_token: userid,
@@ -63,6 +91,21 @@ class ARTICLES{
         });
 
     }
+    retrieveComments(callback){
+        axios.get('https://backend-lifeinthe40s.herokuapp.com/comments')
+        .then(function (response){
+            if(response.data.rows){
+                callback(response.data.rows);
+            }
+            else{
+                callback({});
+            }
+        })
+        .catch(function (error){
+            console.log(error);
+        });
+
+    }
     retrieveArticles(callback){
         axios.get('https://backend-lifeinthe40s.herokuapp.com/articles')
         .then(function (response){
@@ -77,6 +120,17 @@ class ARTICLES{
             console.log(error);
         });
 
+    }
+    deleteComment(id, callback){
+        axios.delete('https://backend-lifeinthe40s.herokuapp.com/comments',{id: id})
+        .then(function(response){
+            if(response.data){
+                callback(response.data);
+            }
+        })
+        .then(function(error){
+            console.log(error);
+        });
     }
     deleteArticle(id, callback){
         axios.delete('https://backend-lifeinthe40s.herokuapp.com/articles',{id: id})

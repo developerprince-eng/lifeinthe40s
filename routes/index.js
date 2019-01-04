@@ -70,12 +70,12 @@ router.get('/articles/create', function(req, res, next){
   res.redirect('/users');
 });
 router.post('/articles/comments', function(req, res, next){
- var uid = req.session.id;
+ var uid = req.session.token;
  var comment = req.body.comment;
 
  articles.createComment(uid, comment, function(response){
   console.log(response.data);
-  res.redirect('/articles/:id');
+  
  });
 });
 router.post('/articles/create', function(req, res, next){

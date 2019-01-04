@@ -6,7 +6,6 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>lifeinthe40s</title>
-
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Montserrat|Quattrocento" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
@@ -71,9 +70,7 @@
                                             <li class="menu-item">
                                                 <a href="/">Home</a>
                                             </li>
-                                            <li class="menu-item">
-                                                <a href="/destination">Trips</a>
-                                            </li>
+                                         
                                             <li class="menu-item">
                                                 <a href="/about">About</a>
                                             </li>
@@ -145,47 +142,24 @@
                             </header>
                             <!-- End Header -->
                             <% articles.forEach(function(article){ %>
-                            <% if(article.id == id){ %>
-                            <article>
-                            <header>
-                              <h1><%= article.title %></h1>
-                              <p>By Maud Matanga <time datetime="2013-14-11"><%= article.createdAt %></time></p>
-                            </header>
-                            <div id="content">
-                              <%-  article.content%>
+                            <% if(article.id == id ) { %>
+                            <div class="progress-container"><div id="progress-bar"></div></div>
+                            <div class="container">
+                            <div class="article">
+                              <span class="title"><%= article.name %></span><br />
+                              <span class="info"><strong>Maud Matanga</strong> - <%= article.createdAt %></span>
+                              <%- article.content %>
                             </div>
-                            <div id="share">
-                              <p>Share this Post on <a href="#"><span class="brandico-facebook"></span></a>&nbsp;<a href="#"><span class="brandico-twitter-bird"></span></a>&nbsp;<a href="#"><span class="brandico-tumblr"></span></a>&nbsp;<a href="#"><span class="brandico-linkedin"></span></a><button type="button" class="btn btn-none" data-toggle="modal" data-target="#exampleModalCenter">
-                              <i class="far fa-comment-dots"></i>
-                            </button></p>
-                          </article>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">Comment</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        </div>
-                        <form method="POST" action="/articles/comment" id="createComment">
-                        <div class="modal-body">
-                        <div class="form-group">
-                        <textarea name="article_content" id="editor" name="comment"></textarea>
-                        </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-none">Save Comment</button>
-                        </div>
-                        </form>
-                    </div>
-                    </div>
-                    </div>
-                    <% } %>
-                    <% }); %>
+                            <div class="comments">
+                              <div class="comment">
+                                    <div class="com-com"></div>
+                              </div>
+                              </div>
+                            </div>
+                            </div>
+                            <% }; %>
+                            <% }); %>
+                          
         </div>
     </div>
 </div>
@@ -193,66 +167,6 @@
 
 <!-- Footer -->
 <footer class="footer">
-
-    <div class="footer-instagram">
-        <ul class="instagram-pics clearfix">
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/1.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/2.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/3.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/4.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/5.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/6.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/7.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/8.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/9.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/10.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-            <li class="instagram-item">
-                <a href="#">
-                    <img src="../images/widgets/instagram/11.jpg" alt="Flickr Feed"/>
-                </a>
-            </li>
-        </ul>
-    </div>
 
     <div class="kd-container">
         <div class="kd-row">
@@ -318,7 +232,7 @@
 <script type="text/javascript" src="../javascripts/js/libs/owl.carousel.js"></script>
 <script type="text/javascript" src="../javascripts/js/libs/masonry.min.js"></script>
 <script type="text/javascript" src="../javascripts/js/scripts.js"></script>
-
+<script type="text/javascript" src="../javascripts/article/index.js"></script>
 </body>
 
 </html>

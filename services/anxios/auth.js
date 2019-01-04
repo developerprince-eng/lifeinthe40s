@@ -50,7 +50,64 @@ class AUTH{
             console.log(error);
         });
     }
+    sendEmail (email, link, callback){
+        axios.post('https://backend-lifeinthe40s.herokuapp.com/password-resets',{
+            email: email,
+            link: link
+        })
+        .then(function(response){
+            callback(response);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    }
+    sendPassword( token, password){
+        var hash = md5(password);
+        axios.put('https://backend-lifeinthe40s.herokuapp.com/password-resets/' + token,{
+            password: hash
+        })
+        .then(function(response){
+            callback(response);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    }
+    verifyToken(token, callback){
+        axios.get('https://backend-lifeinthe40s.herokuapp.com/password-resets/' + token)
+        .then(function(response){
+            callback(response);
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+    }
+    updatePassword(uid, email, password, upassword, callback){
+        var hash = md5(password);
+        var hash2 = md5(upassword);
+        var formData = {
+            access_token: matser_key,
+            email: email,
+            password: hash
+        };
+        var postUrl = "https://" + formData.email + ':' + formData.password + '@backend-lifeinthe40s.herokuapp.com/auth?access_token=' + formData.access_token;
+        axios.post(postUrl + '/users/' + uid + '/' + hash2)
+        .then(function (response){
+            if(response.data){
+                callback(response);
+            }
+            else {
+                callback({});
+            }
+        })
+        .catch(function (error){
+            console.log(error);
+        });
+    }
+    updateUser(uid, callback){
 
+    }
 }
 
 module.exports = AUTH;
