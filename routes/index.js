@@ -29,7 +29,11 @@ router.post('/users', function(req, res, next){
   auth.basicAuth(email, password, function(response){
 
     if(response.data.token == null){
-      res.redirect('/users');
+      res.redirect('/');
+    }
+    if(response == null){
+      var authfail = true;
+      res.render('auth', {authfail: authfail});
     }
     req.session.token = response.data.token; 
     
@@ -37,6 +41,15 @@ router.post('/users', function(req, res, next){
     console.log(response.token);
     
     res.redirect('/');
+  });
+});
+
+router.post('/users/register', function(resq, res, next){
+  var email = req.body.email;
+  var password = req.body.password;
+
+  auth.registerUser(email, password, function(response){
+    res.redirect('/users');
   });
 });
 

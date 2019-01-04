@@ -4,16 +4,10 @@ var AUTH = require('../services/anxios/auth');
 
 
 var auth = new AUTH();
-/* GET users listing. */
+
 router.get('/', function(req, res, next) {
-  res.render('auth');
+  res.render('auth', {authfail: false});
 
 });
-
-
-/* LOG IN users listing. */
-// router.get('/register', function(req, res, next) {
-//   res.render('register');
-// });
 
 module.exports = router;

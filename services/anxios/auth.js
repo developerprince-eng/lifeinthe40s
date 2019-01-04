@@ -19,8 +19,8 @@ class AUTH{
             var postUrl = "https://" + formData.email + ':' + formData.password + '@backend-lifeinthe40s.herokuapp.com/auth?access_token=' + formData.access_token;
             axios.post(postUrl)
             .then(function (response){
-                if(response.status == 201){
-                    callback(response.data);
+                if(response){
+                    callback(response);
                 }
                 else {
                     callback({});
