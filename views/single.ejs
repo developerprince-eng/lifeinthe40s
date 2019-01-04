@@ -150,12 +150,104 @@
                               <span class="info"><strong>Maud Matanga</strong> - <%= article.createdAt %></span>
                               <%- article.content %>
                             </div>
-                            <div class="comments">
+                            <a  data-toggle="modal" data-target="#exampleModalCenter">
+                                <i class="far fa-comment"></i>
+                            </a>
+                            <a data-toggle="modal" data-target="#editArticle">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a href="#">
+                                <i class="far fa-thumbs-up"></i>
+                            </a>
+                            <a href="#">
+                            <i class="far fa-thumbs-down"></i>
+                            </a>
+                            <div class="modal fade" id="editArticle" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog " role="document">
+                            <div class="modal-content">
+                            <!-- Update Articles -->
+
+                                    <div class="row justify-content-center mt-3">
+                                    <div  class="container-fluid">
+                                    <h1 class="header-1 justify-content-center">Update Article</h1>
+                                        <form method="POST" action="/articles/udpate/<%=article.id %>" id="updateArticle">
+                                            <div class="form-group">
+                                            <label for="useremail">Article Title</label>
+                                            <input type="text" class="form-control auth-input" name="article_title" placeholder="<%= article.name %>">
+                                            </div>
+                                            <div class="form-group">
+                                            <label for="userpassword">Header Content</label>
+                                            <input type="text" class="form-control auth-input" name="header_content" placeholder="<%= article.header_content %>">
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-prepend">
+                                                        <label class="input-group-text" for="inputGroupSelect01">Image Options</label>
+                                                    </div>
+                                                    <select name="imgurl" form="createArticle">
+                                                        <option selected><%= article.imgUrl %></option>
+                                                        <option value="images/posts/1.jpg">One</option>
+                                                        <option value="images/posts/2.jpg">Two</option>
+                                                        <option value="images/posts/3.jpg">Three</option>
+                                                        <option value="images/posts/4.jpg">Four</option>
+                                                        <option value="images/posts/5.jpg">Five</option>
+                                                        <option value="images/posts/6.jpg">Six</option>
+                                                        <option value="images/posts/7.jpg">Seven</option>
+                                                        <option value="images/posts/8.jpg">Eight</option>
+                                                        <option value="images/posts/9.jpg">Nine</option>
+                                                        <option value="images/posts/10.jpg">Ten</option>  
+                                                        <option value="images/posts/11.jpg">Eleven</option>  
+                                                        <option value="images/posts/12.jpg">Twelve</option>    
+                                                        <option value="images/posts/13.jpg">Thirten</option>  
+                                                        <option value="images/posts/14.jpg">Fourteen</option>                                  
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <label for="content">Content</label>
+                                            <textarea name="article_content" id="editor"><%- article.content %></textarea>
+                                            <br>
+                                            <div class="auth-item form-submit">
+                                                <button type="submit" class="btn btn-primary auth-btn btn-lg mb-3">Submit</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!--END Update Articles-->
+                                </div>
+                                </div>
+                                </div>
+                                <!-- END MODAL -->
+                                <!-- MODAL-->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">Comment</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <form method="POST" action="/articles/comment" id="createComment">
+                                    <div class="modal-body">
+                                    <div class="form-group">
+                                    <textarea name="article_content" id="editor" name="comment"></textarea>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-none">Save Comment</button>
+                                    </div>
+                                    </form>
+                                </div>
+                                </div>
+                                </div>
+                                <!-- END MODAL -->
+                            <!--<div class="comments">
                               <div class="comment">
                                     <div class="com-com"></div>
                               </div>
                               </div>
-                            </div>
+                            </div>-->
                             </div>
                             <% }; %>
                             <% }); %>

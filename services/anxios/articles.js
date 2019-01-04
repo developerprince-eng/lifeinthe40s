@@ -2,15 +2,18 @@ var axios = require('axios');
 var matser_key = 'lDy8Wk6ysy5S3dakTL9fU89s2UF9Tk62';
 
 class ARTICLES{
+    
     constructor(){}
-    createArticle(title, hcontent, content, imgurl, callback){
+    createArticle(title, hcontent, content, imgurl, likes ,callback){
         axios.post('https://backend-lifeinthe40s.herokuapp.com/articles',{
             access_token: matser_key,
             name: title,
             header_content: hcontent,
             content: content,
-            imgUrl: imgurl
+            imgUrl: imgurl,
+            likes: likes
         })
+
         .then(function (response){
             callback(response);
         })
@@ -140,6 +143,17 @@ class ARTICLES{
             }
         })
         .then(function(error){
+            console.log(error);
+        });
+    }
+    likeArticle(callback){
+        axios.put()
+        .then(function(response){
+            if(response.data){
+                callback(response.data)
+            }
+        })
+        .catch(function(error){
             console.log(error);
         });
     }

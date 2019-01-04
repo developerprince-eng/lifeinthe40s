@@ -61,26 +61,47 @@
                 </div>
                 <!-- Header Top-->
                 <div class="header-fixed clearfix">
-                    <nav class="menu-top">
-                        <ul class="menu menu-top-list">
-                            <li class="menu-item">
-                                <a href="/">Home</a>
-                            </li>
-                           
-                            <li class="menu-item">
-                                <a href="#">Travel</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="#">About</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="#">Contact</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="/users">Login</a>
-                            </li>
-                        </ul>
-                    </nav>
+                <% if (token == null){ %>
+                <nav class="menu-top">
+                    <ul class="menu menu-top-list">
+                        <li class="menu-item">
+                            <a href="/">Home</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#">About</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/users">Log In</a>
+                        </li>
+                    </ul>
+                </nav>
+                <% } %>
+                <% if (token) { %>
+                <nav class="menu-top">
+                    <ul class="menu menu-top-list">
+                        <li class="menu-item">
+                            <a href="/">Home</a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a href="/about">About</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/contatcs">Contact</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/articles/create">Create</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/articles/edit">Edit</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+                <% } %>
+          
                     <div class="header-socials">
                         <ul>
                             <li class="social-item">
@@ -143,21 +164,46 @@
                 <!-- End Logo -->
 
                 <!-- Menu -->
-                <nav class="main-menu nav-menu">
-                    <ul class="menu menu-list">
+                <% if (token == null){ %>
+                <nav class="menu-top">
+                    <ul class="menu menu-top-list">
                         <li class="menu-item">
                             <a href="/">Home</a>
                         </li>
-        
                         <li class="menu-item">
-                            <a href="/users">Login</a>
+                            <a href="#">About</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/users">Log In</a>
                         </li>
                     </ul>
-
-                    <div class="item-search">
-                        <i class="fa fa-search"></i>
-                    </div>
                 </nav>
+                <% } %>
+                <% if (token) { %>
+                <nav class="menu-top">
+                    <ul class="menu menu-top-list">
+                        <li class="menu-item">
+                            <a href="/">Home</a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a href="/about">About</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/contatcs">Contact</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/articles/create">Create</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/articles/edit">Edit</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+                <% } %>
                 <!-- End Menu -->
 
             </header>
@@ -189,9 +235,9 @@
                                     Contrary to popular belief, Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin
                                 </p>
                             </div>
-                            <div class="read-more">
+                           <!-- <div class="read-more">
                                 <a href="#">Read more</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
 
@@ -220,9 +266,9 @@
                                     Contrary to popular belief, Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin
                                 </p>
                             </div>
-                            <div class="read-more">
+                          <!--  <div class="read-more">
                                 <a href="#">Read more</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -250,9 +296,9 @@
                                     Contrary to popular belief, Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin
                                 </p>
                             </div>
-                            <div class="read-more">
+                          <!--  <div class="read-more">
                                 <a href="#">Read more</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -281,9 +327,9 @@
                                     Contrary to popular belief, Lorem Ipsum is not simply random text.It has roots in a piece of classical Latin
                                 </p>
                             </div>
-                            <div class="read-more">
+                            <!--<div class="read-more">
                                 <a href="#">Read more</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
@@ -427,9 +473,9 @@
                                 I am middle aged wife and mother of 5 who is devoted to God, Husband and Family. I have had my fair share of experience in life and this platform serves to allow people to share their experinces in life. 
                             </p>
 
-                            <div class="ntp-button">
+                            <!--<div class="ntp-button">
                                 <a href="#">Read Me</a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                     <!-- End Widget About -->
@@ -440,7 +486,7 @@
                             <p>Various versions have evolved over the years, sometimes. Various versions have evolved over</p>
                         </div>
                         <div class="widget-follow-content ntp-social-square">
-                >
+                
                             <a href="#" title="Facebook">
                                 <i class="fa fa-facebook"></i>
                             </a>
@@ -455,7 +501,7 @@
                     <!-- End Follow Me -->
 
                     <!-- Latest Posts -->
-                    <div class="widget ntp-latest-posts">
+                    <!--<div class="widget ntp-latest-posts">
                         <h2 class="widget-title">Latest Posts</h2>
                         <div class="widget-list">
                             <div class="item clearfix">
@@ -515,11 +561,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- End Latest Posts -->
 
                     <!-- Popular Posts -->
-                    <div class="widget ntp-popular-post">
+                    <!--<div class="widget ntp-popular-post">
                         <h2 class="widget-title">Popular Posts</h2>
                         <div class="widget-list">
                             <div class="item clearfix">
@@ -579,7 +625,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- End Popular Posts -->
 
                     <!-- Banner -->
@@ -705,16 +751,10 @@
                         <a href="/">Home</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#">Trips</a>
+                        <a href="#">About</a>
                     </li>
                     <li class="menu-item">
-                        <a href="#">Travel</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="about.html">About</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="contact.html">Contact</a>
+                        <a href="#">Contact</a>
                     </li>
                 </ul>
             </nav>
