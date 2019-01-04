@@ -15,10 +15,10 @@ class ARTICLES{
         })
 
         .then(function (response){
-            callback(response);
+            callback(response.rows.data);
         })
         .catch(function (error){
-            console.log(error);
+            callback({});
         }); 
     }
     updateComment(uid, id, articleid, content ,callback){
@@ -28,10 +28,10 @@ class ARTICLES{
             comment: content
         })
         .then(function(response){
-            callback(response);
+            callback(response.data);
         })
         .catch(function(error){
-            console.log(error);
+            callback({});
         });
     }
     updateArticle(id, name, hcontent, content ,imgUrl,callback){
@@ -43,10 +43,10 @@ class ARTICLES{
             imgUrl: imgUrl
         })
         .then(function(response){
-            callback(response);
+            callback(response.data);
         })
         .catch(function(error){
-            console.log(error);
+            callback({});
         });
     }
     createComment(userid , articleid, comment,  callback){
@@ -56,10 +56,10 @@ class ARTICLES{
             comment: comment,
         })
         .then(function (response){
-            callback(response);
+            callback(response.rows.data);
         })
         .catch(function (error){
-            console.log(error);
+            callback({});
         }); 
     }
     searchArticle(q, callback){
@@ -73,7 +73,7 @@ class ARTICLES{
             }
         })
         .catch(function(error){
-            console.log(error);
+            callback({});
         });
     }
     editArticle(){
@@ -82,7 +82,7 @@ class ARTICLES{
     retrieveArticle(id, callback){
         axios.get('https://backend-lifeinthe40s.herokuapp.com/articles/',{id: id})
         .then(function(response){
-            if(response.data.rows){
+            if(response){
                 callback(response.data.rows);
             }
             else{
@@ -90,14 +90,14 @@ class ARTICLES{
             }   
         })
         .catch(function(error){
-            console.log(error);
+            callback({});
         });
 
     }
     retrieveComments(callback){
         axios.get('https://backend-lifeinthe40s.herokuapp.com/comments')
         .then(function (response){
-            if(response.data.rows){
+            if(response){
                 callback(response.data.rows);
             }
             else{
@@ -105,14 +105,14 @@ class ARTICLES{
             }
         })
         .catch(function (error){
-            console.log(error);
+            callback({});
         });
 
     }
     retrieveArticles(callback){
         axios.get('https://backend-lifeinthe40s.herokuapp.com/articles')
         .then(function (response){
-            if(response.data.rows){
+            if(response){
                 callback(response.data.rows);
             }
             else{
@@ -120,7 +120,7 @@ class ARTICLES{
             }
         })
         .catch(function (error){
-            console.log(error);
+            callback({});
         });
 
     }
@@ -132,7 +132,7 @@ class ARTICLES{
             }
         })
         .then(function(error){
-            console.log(error);
+            callback({});
         });
     }
     deleteArticle(id, callback){
@@ -143,7 +143,7 @@ class ARTICLES{
             }
         })
         .then(function(error){
-            console.log(error);
+            callback({});
         });
     }
     likeArticle(callback){
@@ -154,7 +154,7 @@ class ARTICLES{
             }
         })
         .catch(function(error){
-            console.log(error);
+            callback({});
         });
     }
 }

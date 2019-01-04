@@ -5,7 +5,7 @@ var ARTICLES = require('../services/anxios/articles');
 
 var articles = new ARTICLES();
 var auth = new AUTH(); 
-/* GET home page. */
+
 router.get('/', function(req, res, next) {
   if(req.session.token) {
     console.log(req.session.token);
