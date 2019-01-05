@@ -61,9 +61,10 @@
                 </div>
                 <!-- Header Top-->
                 <div class="header-fixed clearfix">
-                <% if (!token){ %>
+                
                 <nav class="menu-top">
                     <ul class="menu menu-top-list">
+                        <% if ( articles) { %>
                         <li class="menu-item">
                             <a href="/">Home</a>
                         </li>
@@ -73,31 +74,21 @@
                         <li class="menu-item">
                             <a href="/users">Log In</a>
                         </li>
-                    </ul>
-                </nav>
-                <% } %>
-                <% if(token) { %>
-                <nav class="menu-top">
-                    <ul class="menu menu-top-list">
-                        <li class="menu-item">
-                            <a href="/">Home</a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a href="/about">About</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/contatcs">Contact</a>
-                        </li>
+                        <% } %>
+                        <% if(articles && token) { %>
+               
                         <li class="menu-item">
                             <a href="/create">Create</a>
                         </li>
                         <li class="menu-item">
                             <a href="/logout">Logout</a>
                         </li>
+         
+                    <% } %>
                     </ul>
                 </nav>
-                <% } %>
+                
+             
           
                     <div class="header-socials">
                         <ul>
@@ -161,44 +152,31 @@
                 <!-- End Logo -->
 
                 <!-- Menu -->
-                <% if (!token){ %>
                 <nav class="menu-top">
-                    <ul class="menu menu-top-list">
-                        <li class="menu-item">
-                            <a href="/">Home</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#">About</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/users">Log In</a>
-                        </li>
-                    </ul>
-                </nav>
+                <ul class="menu menu-top-list">
+                    <% if ( articles) { %>
+                    <li class="menu-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/users">Log In</a>
+                    </li>
+                    <% } %>
+                    <% if(articles && token) { %>
+           
+                    <li class="menu-item">
+                        <a href="/create">Create</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="/logout">Logout</a>
+                    </li>
+     
                 <% } %>
-                <% if (token) { %>
-                <nav class="menu-top">
-                    <ul class="menu menu-top-list">
-                        <li class="menu-item">
-                            <a href="/">Home</a>
-                        </li>
-                    
-                        <li class="menu-item">
-                            <a href="/about">About</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/contatcs">Contact</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/create">Create</a>
-                        </li>
-                        
-                        <li class="menu-item">
-                            <a href="/logout">Logout</a>
-                        </li>
-                    </ul>
-                </nav>
-                <% } %>
+                </ul>
+            </nav>
                 <!-- End Menu -->
 
             </header>
