@@ -22,9 +22,7 @@ class AUTH{
                 if(response){
                     callback(response);
                 }
-                else {
-                    callback({});
-                }
+               
             })
             .catch(function (error){
                 callback({});

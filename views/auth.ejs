@@ -139,7 +139,7 @@
                     <form method="POST" action="/users">
                         <div class="form-group">
                         <label for="useremail">Use Email</label>
-                        <%= if(authfail == true){ %>
+                        <% if(authfail == true){ %>
                         <div class="alert alert-danger" role="alert">
                         Incorrect Email
                         </div>
@@ -148,7 +148,7 @@
                         </div>
                         <div class="form-group">
                         <label for="userpassword">Password</label>
-                        <%= if(authfail == true){ %>
+                        <% if(authfail == true){ %>
                         <div class="alert alert-danger" role="alert">
                         Or Incorrect Password
                         </div>
