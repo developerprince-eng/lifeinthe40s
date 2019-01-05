@@ -21,6 +21,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/create', function(req, res, next){
+  res.render('create_article');
+});
+
 router.post('/users', function(req, res, next){
 
   var email = req.body.email;
