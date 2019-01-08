@@ -162,9 +162,11 @@
                             <a href="#">
                             <i class="far fa-thumbs-down"></i>
                             </a>
-                            <a href="/articles/delete">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <form method="DELETE" action="/articles/delete/?id=<%=article.id %>">
+                                <button type="submit">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
                             <div class="modal fade" id="editArticle" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog " role="document">
                             <div class="modal-content">
