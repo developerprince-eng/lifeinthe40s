@@ -25,7 +25,7 @@ class AUTH{
                
             })
             .catch(function (error){
-                callback({});
+                callback([]);
             });
         }
 
@@ -41,11 +41,11 @@ class AUTH{
                 callback(response.data);
             }
             else {
-                callback({});
+                callback([]);
             }
         })
         .catch(function (error){
-            callback({});
+            callback([]);
         });
     }
     sendEmail (email, link, callback){
@@ -57,10 +57,10 @@ class AUTH{
             callback(response.data);
         })
         .catch(function(error){
-            callback({});
+            callback([]);
         });
     }
-    sendPassword( token, password){
+    sendPassword( token, password, callback){
         var hash = md5(password);
         axios.put('https://backend-lifeinthe40s.herokuapp.com/password-resets/' + token,{
             password: hash
@@ -69,7 +69,7 @@ class AUTH{
             callback(response.data);
         })
         .catch(function(error){
-            callback({});
+            callback([]);
         });
     }
     verifyToken(token, callback){
@@ -78,7 +78,7 @@ class AUTH{
             callback(response.data);
         })
         .catch(function(error){
-            callback({});
+            callback([]);
         });
     }
     updatePassword(uid, email, password, upassword, callback){
@@ -96,11 +96,11 @@ class AUTH{
                 callback(response.data);
             }
             else {
-                callback({});
+                callback([]);
             }
         })
         .catch(function (error){
-            callback({});
+            callback([]);
         });
     }
     updateUser(uid, callback){

@@ -61,35 +61,30 @@
                 </div>
                 <!-- Header Top-->
                 <div class="header-fixed clearfix">
+                    <nav class="menu-top">
+                        <ul class="menu menu-top-list">
+                            <% if ( articles) { %>
+                            <li class="menu-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/about">About</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="/users">Log In</a>
+                            </li>
+                            <% } %>
+                            <% if(articles && token) { %>
                 
-                <nav class="menu-top">
-                    <ul class="menu menu-top-list">
-                        <% if ( articles) { %>
-                        <li class="menu-item">
-                            <a href="/">Home</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#">About</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/users">Log In</a>
-                        </li>
+                            <li class="menu-item">
+                                <a href="articles/create">Create</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="users/logout">Logout</a>
+                            </li>
                         <% } %>
-                        <% if(articles && token) { %>
-               
-                        <li class="menu-item">
-                            <a href="/create">Create</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="/logout">Logout</a>
-                        </li>
-         
-                    <% } %>
-                    </ul>
-                </nav>
-                
-             
-          
+                        </ul>
+                    </nav>
                     <div class="header-socials">
                         <ul>
                             <li class="social-item">
@@ -150,34 +145,6 @@
                     </div>
                 </div>
                 <!-- End Logo -->
-
-                <!-- Menu -->
-                <nav class="menu-top">
-                <ul class="menu menu-top-list">
-                    <% if ( articles) { %>
-                    <li class="menu-item">
-                        <a href="/">Home</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="#">About</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="/users">Log In</a>
-                    </li>
-                    <% } %>
-                    <% if(articles && token) { %>
-           
-                    <li class="menu-item">
-                        <a href="/create">Create</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="/logout">Logout</a>
-                    </li>
-     
-                <% } %>
-                </ul>
-            </nav>
-                <!-- End Menu -->
 
             </header>
             <!-- End Header -->
@@ -358,7 +325,6 @@
 
             <!-- Posts -->
             <div class="wrapper-content clearfix" data-sidebar="right">
-
                 <div class="wrapper-posts">
                     <div class="blog-posts grid-layout clearfix">
                         <% articles.forEach(function(article){ %>
@@ -402,8 +368,6 @@
                             </div>
                         </div>
                         <% }); %>
-                      
-
                     </div>
                     <div class="pagination-wrap">
                         <ul class="pagination clearfix">
@@ -430,7 +394,6 @@
                 </div>
                 <!-- SideBars-->
                 <div class="sidebar">
-
                     <!-- Widget About -->
                     <div class="widget ntp-about">
                         <h2 class="widget-title">
@@ -438,14 +401,12 @@
                         </h2>
                         <div class="widget-content">
                             <img src="images/widgets/about-me.jpg" alt="">
-
                             <h2 class="title">
                                 <a href="#">Maud Matanga</a>
                             </h2>
                             <p class="ntp-description">
                                 I am middle aged wife and mother of 5 who is devoted to God, Husband and Family. I have had my fair share of experience in life and this platform serves to allow people to share their experinces in life. 
                             </p>
-
                             <!--<div class="ntp-button">
                                 <a href="#">Read Me</a>
                             </div>-->
@@ -471,135 +432,6 @@
                             </a>
                         </div>
                     </div>
-                    <!-- End Follow Me -->
-
-                    <!-- Latest Posts -->
-                    <!--<div class="widget ntp-latest-posts">
-                        <h2 class="widget-title">Latest Posts</h2>
-                        <div class="widget-list">
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/1.jpg')">
-                                        <img src="images/widgets/posts/1.jpg" alt="I have a happy and peaceful fife there">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">I have a happy and peaceful fife there</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/2.jpg')">
-                                        <img src="images/widgets/posts/2.jpg" alt="Their happiness comes before anything else">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">Their happiness comes before anything else</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/3.jpg')">
-                                        <img src="images/widgets/posts/3.jpg" alt="The basis of friendship is sharing">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">The basis of friendship is sharing</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/16.jpg')">
-                                        <img src="images/widgets/posts/16.jpg" alt="The sooner you try the sooner you can succeed">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">The sooner you try the sooner you can succeed</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!-- End Latest Posts -->
-
-                    <!-- Popular Posts -->
-                    <!--<div class="widget ntp-popular-post">
-                        <h2 class="widget-title">Popular Posts</h2>
-                        <div class="widget-list">
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/6.jpg')">
-                                        <img src="images/widgets/posts/6.jpg" alt="A high risk investment may bring you big profit">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">A high risk investment may bring you big profit</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/11.jpg')">
-                                        <img src="images/widgets/posts/11.jpg" alt="Introducing Your Newest Model home for the Fashion">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">Introducing Your Newest Model home for the Fashion</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/14.jpg')">
-                                        <img src="images/widgets/posts/14.jpg" alt="Enjoy the fruits of your labour">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">Enjoy the fruits of your labour</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                            <div class="item clearfix">
-                                <a href="#">
-                                    <div class="item-image" style="background-image: url('images/widgets/posts/4.jpg')">
-                                        <img src="images/widgets/posts/4.jpg" alt="The sooner you try the sooner you can succeed">
-                                    </div>
-                                </a>
-                                <div class="widget-item-content">
-                                    <h3 class="item-title">
-                                        <a href="#">The sooner you try the sooner you can succeed</a>
-                                    </h3>
-                                    <a href="#" class="item-meta"><span>October 9, 2016</span></a>
-                                    <a href="#" class="item-comment">3 Comments</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
-                    <!-- End Popular Posts -->
 
                     <!-- Banner -->
                     <div class="widget ntp-banner">
@@ -609,8 +441,6 @@
                         </div>
                     </div>
                     <!-- End Banner -->
-
-
 
                     <!-- Contact -->
                     <div class="widget ntp-contact">
@@ -624,7 +454,8 @@
                             <div class="item-icon-left ntp-description">
                                 <i class="fa fa-map-marker"></i>
                                 <span>
-                                    108 Nusery Road                    </span>
+                                    108 Nusery Road
+                                </span>
                             </div>
                             <div class="item-icon-left ntp-description">
                                 <i class="fa fa-envelope"></i>
@@ -639,7 +470,6 @@
                         </div>
                     </div>
                     <!-- End Contact -->
-
                 </div>
             </div>
         </div>
