@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var validator = require('express-validator');
 var session = require('express-session');
 
 
@@ -17,6 +18,7 @@ var session_prams = {
 };
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var articlesRouter = require('./routes/articles');
 
 var app = express();
 
@@ -32,10 +34,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(validator());
 app.use(session(session_prams));
+app.use(function(req, res, next) {
+  res.locals.token = req.session.token || null;
+  res.locals.authfail = true || false;
+  next();
+});
 app.use('/', indexRouter);
+app.use('/articles', articlesRouter);
 app.use('/users', usersRouter);
-//app.use(tokens('articles/:id'));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,5 +61,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
