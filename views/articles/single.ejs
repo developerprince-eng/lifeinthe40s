@@ -150,7 +150,7 @@
                               <span class="info"><strong>Maud Matanga</strong> - <%= article.createdAt %></span>
                               <%- article.content %>
                             </div>
-                            <a  data-toggle="modal" data-target="#exampleModalCenter">
+                            <a  data-toggle="modal" data-target="#commentmodal">
                                 <i class="far fa-comment"></i>
                             </a>
                             <a data-toggle="modal" data-target="#editArticle">
@@ -162,15 +162,13 @@
                             <a href="#">
                             <i class="far fa-thumbs-down"></i>
                             </a>
-                            <form method="DELETE" action="/articles/delete/?id=<%=article.id %>">
-                                <button type="submit">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
+                            <a data-toggle="modal" data-target="#deletemodal">
+                                <i class="fas fa-trash"></i>
+                            </a>
                             <div class="modal fade" id="editArticle" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog " role="document">
                             <div class="modal-content">
-                                <!-- Update Articles -->
+                                <!-- Update Articles Modal-->
                                 <div class="row justify-content-center mt-3">
                                     <div  class="container-fluid">
                                     <h1 class="header-1 justify-content-center">Update Article</h1>
@@ -216,45 +214,72 @@
                                         </form>
                                     </div>
                                 </div>
-                                <!--END Update Articles-->
+                                <!--END Update Articles Modal-->
                                 </div>
                                 </div>
                                 </div>
                                 <!-- END MODAL -->
-                                <!-- MODAL-->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalCenterTitle">Comment</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            </div>
-                                            <form method="POST" action="/articles/comment" id="createComment">
-                                            <div class="modal-body">
-                                            <div class="form-group">
-                                            <textarea name="article_content" id="editor" name="comment"></textarea>
-                                            </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-none">Save Comment</button>
-                                            </div>
-                                            </form>
+
+                                <!-- DELETE MODAL-->
+                                <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Are you Sure you want to Delete Article</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                                         </div>
+                                        <form method="POST" action="/articles/delete" id="createComment">
+                                        <div class="modal-body">
+                                        <div class="form-group">
+                                        <input type="text" class="form-control auth-input" name="id" placeholder="<%= article.id %>">
+                                        </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                        </div>
+                                        </form>
                                     </div>
                                 </div>
-                                <!-- END MODAL -->
-                                <!--<div class="comments">
-                              <div class="comment">
-                                    <div class="com-com"></div>
-                              </div>
-                              </div>
-                            </div>-->
                             </div>
-                            <% }; %>
-                            <% }); %>
+                            <!-- END DELETE MODAL -->
+
+                            <!-- MODAL-->
+                            <div class="modal fade" id="commentmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Comment</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <form method="POST" action="/articles/comment" id="createComment">
+                                        <div class="modal-body">
+                                        <div class="form-group">
+                                        <textarea name="article_content" id="editor" name="comment"></textarea>
+                                        </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-none">Save Comment</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- END MODAL -->
+                            <!--<div class="comments">
+                            <div class="comment">
+                                <div class="com-com"></div>
+                            </div>
+                            </div>
+                        </div>-->
+                        </div>
+                        <% }; %>
+                        <% }); %>
                           
         </div>
     </div>
