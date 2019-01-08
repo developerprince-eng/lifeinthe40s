@@ -58,4 +58,7 @@ router.get('/logout', function(req, res, next){
   });
 });
 
+router.get('/forgot_password', function(req, res, next){
+  res.render('users/forgot_password');
+});
 module.exports = router;
