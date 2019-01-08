@@ -68,7 +68,7 @@ router.put('/edit', function(req, res, next){
     });
 });
 
-router.delete('/delete', function(req, res, next){
+router.post('/delete', function(req, res, next){
     var articelID = req.body.id;
     articles.deleteArticle(articelID, function(response){
         console.log(response);
