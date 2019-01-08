@@ -61,4 +61,18 @@ router.get('/logout', function(req, res, next){
 router.get('/forgot_password', function(req, res, next){
   res.render('users/forgot_password');
 });
+
+router.get('/newpassword', function(req, res, next){
+  res.render('users/newpasswords');
+});
+
+router.post('/newpassword', function(req, res, next){
+  var veritoken = req.body.veritoken;
+  var password = req.body.password;
+  
+  auth.sendPassword(veritoken, password, function(response){
+    
+  });
+});
+
 module.exports = router;
