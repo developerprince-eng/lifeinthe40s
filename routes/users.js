@@ -28,6 +28,10 @@ router.post('/', function(req, res, next){
   });
 });
 
+router.get('/register', function(req, res, next){
+  res.render('users/register');
+});
+
 router.post('/register', function(resq, res, next){
 
   req.check('email', 'Invalid Email Address').isEmail().notEmpty();
@@ -45,10 +49,6 @@ router.post('/register', function(resq, res, next){
   });
 });
 
-router.get('/register', function(req, res, next){
-  res.render('users/register');
-});
-
 router.get('/logout', function(req, res, next){
   req.session.destroy(function(error){
     if(error){
@@ -62,8 +62,12 @@ router.get('/forgot_password', function(req, res, next){
   res.render('users/forgot_password');
 });
 
+router.post('/forgot_password', function(req, res, next){
+  res.redirect('/users/newpassword');
+});
+
 router.get('/newpassword', function(req, res, next){
-  res.render('users/newpasswords');
+  res.render('users/newpassword');
 });
 
 router.post('/newpassword', function(req, res, next){
@@ -71,7 +75,8 @@ router.post('/newpassword', function(req, res, next){
   var password = req.body.password;
   
   auth.sendPassword(veritoken, password, function(response){
-    
+    console.log(response);
+    redirect('/users');
   });
 });
 

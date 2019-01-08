@@ -162,15 +162,17 @@
                             <a href="#">
                             <i class="far fa-thumbs-down"></i>
                             </a>
+                            <a href="/articles/delete">
+                                <i class="fas fa-trash"></i>
+                            </a>
                             <div class="modal fade" id="editArticle" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog " role="document">
                             <div class="modal-content">
-                            <!-- Update Articles -->
-
-                                    <div class="row justify-content-center mt-3">
+                                <!-- Update Articles -->
+                                <div class="row justify-content-center mt-3">
                                     <div  class="container-fluid">
                                     <h1 class="header-1 justify-content-center">Update Article</h1>
-                                        <form method="POST" action="/articles/udpate/<%=article.id %>" id="updateArticle">
+                                        <form method="POST" action="/articles/update/<%=article.id %>" id="updateArticle">
                                             <div class="form-group">
                                             <label for="useremail">Article Title</label>
                                             <input type="text" class="form-control auth-input" name="article_title" placeholder="<%= article.name %>">
@@ -219,30 +221,30 @@
                                 <!-- END MODAL -->
                                 <!-- MODAL-->
                                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">Comment</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalCenterTitle">Comment</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            </div>
+                                            <form method="POST" action="/articles/comment" id="createComment">
+                                            <div class="modal-body">
+                                            <div class="form-group">
+                                            <textarea name="article_content" id="editor" name="comment"></textarea>
+                                            </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-none">Save Comment</button>
+                                            </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <form method="POST" action="/articles/comment" id="createComment">
-                                    <div class="modal-body">
-                                    <div class="form-group">
-                                    <textarea name="article_content" id="editor" name="comment"></textarea>
-                                    </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-none">Save Comment</button>
-                                    </div>
-                                    </form>
-                                </div>
-                                </div>
                                 </div>
                                 <!-- END MODAL -->
-                            <!--<div class="comments">
+                                <!--<div class="comments">
                               <div class="comment">
                                     <div class="com-com"></div>
                               </div>
