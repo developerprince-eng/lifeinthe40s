@@ -328,47 +328,7 @@
             <div class="wrapper-content clearfix" data-sidebar="right">
                 <div class="wrapper-posts">
                     <div class="blog-posts grid-layout clearfix">
-                        <% articles.forEach(function(article){ %>
-                        <div class="post post-grid">
-                            <div class="post-media">
-                                <a href="#">
-                                    <img src="<%= article.imgUrl %>" alt="Post">
-                                </a>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-cat">
-                                    <ul>
-                                        <li>
-                                            <a href="#">Travel</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Lifestyle</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <h2 class="title">
-                                    <a href="#"><%= article.title %></a>
-                                </h2>
-                                <div class="post-detail">
-                                    <a href="#" class="date"><%= article.createdAt %></a>
-                                    <a href="#" class="comment-count"></a>
-                                </div>
-
-                                <div class="the-excerpt">
-                                    <%= article.header_content %>
-                                </div>
-
-                                <div class="post-footer clearfix">
-                                    <div class="wrap-read-more">
-                                        <div class="read-more">
-                                            <a href="/articles/<%= article.id %>">Continue Reading</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <% }); %>
+                      
                     </div>
                     <!--
                     <div class="pagination-wrap">
